@@ -1,6 +1,5 @@
 package cn.itcast.bos.web.action.base;
 
-import cn.itcast.bos.web.action.common.BaseAction;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.ParentPackage;
@@ -12,7 +11,7 @@ import org.springframework.stereotype.Controller;
 @Namespace("/")
 @Controller
 @Scope("prototype")
-public class ImageAction extends BaseAction {
+public class ImageAction {
 
     private String imgFile;
     private String imgFileFileName;
@@ -29,7 +28,7 @@ public class ImageAction extends BaseAction {
         System.out.println(imgFile);
         System.out.println(imgFileFileName);
         System.out.println(imgFileContentType);
-        return SUCCESS;
+        return "success";
     }
 
     public void setImgFile(String imgFile) {
