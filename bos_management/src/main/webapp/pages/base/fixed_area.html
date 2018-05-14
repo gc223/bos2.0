@@ -253,6 +253,7 @@
             $("#associationBtn").click(function () {
                 // 选中所有 已关联定区客户select中选项
                 $("#associationSelect option").attr("selected", "selected");
+                $("#noassociationSelect option").attr("selected", "selected");
                 // 提交表单
                 $("#customerForm").submit();
             });
@@ -537,7 +538,8 @@
                     <td>
                         <!-- 存放定区编号 -->
                         <input type="hidden" name="id" id="customerFixedAreaId"/>
-                        <select id="noassociationSelect" multiple="multiple" size="10" style="width: 300px;"></select>
+                        <select id="noassociationSelect" name="nocustomerIds" multiple="multiple" size="10"
+                                style="width: 300px;"></select>
                     </td>
                     <td>
                         <input type="button" value="》》" id="toRight">

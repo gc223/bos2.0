@@ -22,10 +22,29 @@
             });
             KindEditor.ready(function (K) {
                 window.editor = K.create('#description', {
+                    items: [
+                        'source', '|', 'undo', 'redo', '|', 'preview', 'print', 'template', 'code', 'cut', 'copy', 'paste',
+                        'plainpaste', 'wordpaste', '|', 'justifyleft', 'justifycenter', 'justifyright',
+                        'justifyfull', 'insertorderedlist', 'insertunorderedlist', 'indent', 'outdent', 'subscript',
+                        'superscript', 'clearhtml', 'quickformat', 'selectall', '|', 'fullscreen', '/',
+                        'formatblock', 'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold',
+                        'italic', 'underline', 'strikethrough', 'lineheight', 'removeformat', '|', 'image', 'multiimage',
+                        'flash', 'media', 'insertfile', 'table', 'hr', 'emoticons', 'baidumap', 'pagebreak',
+                        'anchor', 'link', 'unlink', '|', 'about'
+                    ],
                     uploadJson: '../../image_upload.action',
-                    fileManagerJson: '../../image_manager.action',
+                    fileManagerJson: '/bos_management/image_manager.action',
                     allowFileManager: true
                 });
+            });
+            $("#save").click(function () {
+                if ($("#promotionForm").form("validate")) {
+                    //
+                    window.editor.sync();
+                    $("#promotionForm").submit();
+                } else {
+                    $.messager.alert("警告信息", "表单中存在非法数据", "warning");
+                }
             });
         });
 
@@ -39,7 +58,7 @@
     </div>
 </div>
 <div region="center" style="overflow:auto;padding:5px;" border="false">
-    <form id="promotionForm" method="post">
+    <form id="promotionForm" method="post" enctype="multipart/form-data" action="../../promotion_save.action">
         <table class="table-edit" width="95%" align="center">
             <tr class="title">
                 <td colspan="4">宣传任务</td>

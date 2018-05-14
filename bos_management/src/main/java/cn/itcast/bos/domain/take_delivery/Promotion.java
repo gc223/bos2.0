@@ -129,4 +129,20 @@ public class Promotion implements Serializable {
         this.description = description;
     }
 
+    @Override
+    public String toString() {
+        return "Promotion{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", titleImg='" + titleImg + '\'' +
+                ", activeScope='" + activeScope + '\'' +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
+                ", updateTime=" + updateTime +
+                ", updateUnit='" + updateUnit + '\'' +
+                ", updateUser='" + updateUser + '\'' +
+                ", status='" + status + '\'' +
+                ", description='" + description + '\'' +
+                '}';
+    }
 }

@@ -10,16 +10,16 @@ import cn.itcast.crm.domain.Customer;
 
 public interface CustomerRepository extends JpaRepository<Customer, Integer> {
 
-    public List<Customer> findByFixedAreaIdIsNull();
+    List<Customer> findByFixedAreaIdIsNull();
 
-    public List<Customer> findByFixedAreaId(String fixedAreaId);
+    List<Customer> findByFixedAreaId(String fixedAreaId);
 
     @Query("update Customer set fixedAreaId = ? where id = ?")
     @Modifying
-    public void updateFixedAreaId(String fixedAreaId, Integer id);
+    void updateFixedAreaId(String fixedAreaId, Integer id);
 
     @Query("update Customer set fixedAreaId = null where fixedAreaId = ?")
     @Modifying
-    public void clearFixedAreaId(String fixedAreaId);
+    void clearFixedAreaId(String fixedAreaId);
 
 }

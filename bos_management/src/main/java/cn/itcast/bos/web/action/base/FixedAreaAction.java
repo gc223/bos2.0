@@ -90,7 +90,7 @@ public class FixedAreaAction extends BaseAction<FixedArea> {
     }
 
     // 查询未关联定区列表
-    @Action(value = "fixedArea_findNoAssociationCustomers", results = {@Result(name = "success", type = "json")})
+    @Action(value = "fixedArea_findNoAssociationCustomers", results = {@Result(type = "json")})
     public String findNoAssociationCustomers() {
         // 使用webClient调用 webService接口
         Collection<? extends Customer> collection = WebClient
@@ -102,7 +102,7 @@ public class FixedAreaAction extends BaseAction<FixedArea> {
     }
 
     // 查询关联当前定区的列表
-    @Action(value = "fixedArea_findHasAssociationFixedAreaCustomers", results = {@Result(name = "success", type = "json")})
+    @Action(value = "fixedArea_findHasAssociationFixedAreaCustomers", results = {@Result(type = "json")})
     public String findHasAssociationFixedAreaCustomers() {
         // 使用webClient调用 webService接口
         Collection<? extends Customer> collection = WebClient
@@ -115,19 +115,21 @@ public class FixedAreaAction extends BaseAction<FixedArea> {
 
     // 属性驱动
     private String[] customerIds;
+    private String[] nocustomerIds;
 
     public void setCustomerIds(String[] customerIds) {
         this.customerIds = customerIds;
     }
 
     // 关联客户到定区
-    @Action(value = "fixedArea_associationCustomersToFixedArea", results = {@Result(name = "success", type = "redirect", location = "./pages/base/fixed_area.html")})
+    @Action(value = "fixedArea_associationCustomersToFixedArea", results = {@Result(type = "redirect", location = "./pages/base/fixed_area.html")})
     public String associationCustomersToFixedArea() {
         String customerIdStr = StringUtils.join(customerIds, ",");
+        String nocustomerIdStr = StringUtils.join(nocustomerIds, ",");
         WebClient.create(
                 "http://localhost:9002/crm_management/services/customerService"
                         + "/associationcustomerstofixedarea?customerIdStr="
-                        + customerIdStr + "&fixedAreaId=" + model.getId()).put(
+                        + customerIdStr + "?nocustomerIdStr=" + nocustomerIdStr + "&fixedAreaId=" + model.getId()).put(
                 null);
         return SUCCESS;
     }
@@ -146,12 +148,16 @@ public class FixedAreaAction extends BaseAction<FixedArea> {
 
     // 关联快递员 到定区
     @Action(value = "fixedArea_associationCourierToFixedArea",
-            results = {@Result(name = "success", type = "redirect",
+            results = {@Result(type = "redirect",
                     location = "./pages/base/fixed_area.html")})
     public String associationCourierToFixedArea() {
         // 调用业务层， 定区关联快递员
         fixedAreaService.associationCourierToFixedArea(model, courierId,
                 takeTimeId);
         return SUCCESS;
+    }
+
+    public void setNocustomerIds(String[] nocustomerIds) {
+        this.nocustomerIds = nocustomerIds;
     }
 }

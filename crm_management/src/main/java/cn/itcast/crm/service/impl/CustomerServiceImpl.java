@@ -33,11 +33,20 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public void associationCustomersToFixedArea(String customerIdStr,
+    public void associationCustomersToFixedArea(String customerIdStr, String nocustomerIdStr,
                                                 String fixedAreaId) {
         // 解除关联动作
         customerRepository.clearFixedAreaId(fixedAreaId);
 
+        //解除关联
+        if (StringUtils.isBlank(nocustomerIdStr)) {
+            return;
+        }
+        String[] nocustomerIdArray = nocustomerIdStr.split(",");
+        for (String idStr : nocustomerIdArray) {
+            Integer id = Integer.parseInt(idStr);
+            customerRepository.updateFixedAreaId(null, id);
+        }
         // 切割字符串 1,2,3
         if (StringUtils.isBlank(customerIdStr)) {
             return;

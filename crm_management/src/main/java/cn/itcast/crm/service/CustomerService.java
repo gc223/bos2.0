@@ -24,20 +24,21 @@ public interface CustomerService {
     @Path("/noassociationcustomers")
     @GET
     @Produces({"application/xml", "application/json"})
-    public List<Customer> findNoAssociationCustomers();
+    List<Customer> findNoAssociationCustomers();
 
     // 已经关联到指定定区的客户列表
     @Path("/associationfixedareacustomers/{fixedareaid}")
     @GET
     @Produces({"application/xml", "application/json"})
-    public List<Customer> findHasAssociationFixedAreaCustomers(
+    List<Customer> findHasAssociationFixedAreaCustomers(
             @PathParam("fixedareaid") String fixedAreaId);
 
     // 将客户关联到定区上 ， 将所有客户id 拼成字符串 1,2,3
     @Path("/associationcustomerstofixedarea")
     @PUT
-    public void associationCustomersToFixedArea(
+    void associationCustomersToFixedArea(
             @QueryParam("customerIdStr") String customerIdStr,
+            @QueryParam("nocustomerIdStr") String nocustomerIdStr,
             @QueryParam("fixedAreaId") String fixedAreaId);
 
 

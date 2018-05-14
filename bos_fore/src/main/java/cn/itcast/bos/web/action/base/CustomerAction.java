@@ -17,11 +17,11 @@ import cn.itcast.crm.domain.Customer;
 public class CustomerAction extends BaseAction<Customer> {
 
 
-    @Action(value = "customer_regist", results = {
-            @Result(name = "success", type = "redirect", location = "./signup-success.html"),
+    @Action(value = "customer_sendMsg", results = {
+            @Result(type = "redirect", location = "./signup-success.html"),
             @Result(name = "error", type = "redirect", location = "./signup.html")})
-    public String regist() {
-
+    public String sendMsg() {
+        System.out.println("成功");
         return SUCCESS;
     }
 }
