@@ -18,10 +18,12 @@
         <property name="jobClass" value="cn.itcast.bos.quartz.PromotionJob"/>
     </bean>
     <bean name="jobFactory" class="cn.itcast.bos.quartz.JobFactory"></bean>
+    <!-- 触发器 -->
     <bean name="cornPromotionTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
         <property name="jobDetail" ref="promotionJob"/>
         <property name="cronExpression" value="0/5 * * * * ? "/>
     </bean>
+    <!--  -->
     <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
         <property name="jobFactory" ref="jobFactory"/>
         <property name="triggers">

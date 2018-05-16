@@ -41,5 +41,8 @@ public interface CustomerService {
             @QueryParam("nocustomerIdStr") String nocustomerIdStr,
             @QueryParam("fixedAreaId") String fixedAreaId);
 
-
+    @Path("/register")
+    @POST
+    @Consumes("application/json")
+    void register(Customer customer);
 }
