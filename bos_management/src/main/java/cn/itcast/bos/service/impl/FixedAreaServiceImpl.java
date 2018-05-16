@@ -1,4 +1,4 @@
-package cn.itcast.bos.service.base.impl;
+package cn.itcast.bos.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

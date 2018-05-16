@@ -1,4 +1,4 @@
-package cn.itcast.bos.service.base.impl;
+package cn.itcast.bos.service.impl;
 
 import java.util.List;
 

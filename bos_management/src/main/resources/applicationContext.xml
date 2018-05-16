@@ -14,4 +14,21 @@
 
     <!-- 引入外部数据文件 -->
     <import resource="applicationContext-dataSource.xml"/>
+    <bean name="promotionJob" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+        <property name="jobClass" value="cn.itcast.bos.quartz.PromotionJob"/>
+    </bean>
+    <bean name="jobFactory" class="cn.itcast.bos.quartz.JobFactory"></bean>
+    <bean name="cornPromotionTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="promotionJob"/>
+        <property name="cronExpression" value="0/5 * * * * ? "/>
+    </bean>
+    <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="jobFactory" ref="jobFactory"/>
+        <property name="triggers">
+            <list>
+                <ref bean="cornPromotionTrigger"/>
+            </list>
+        </property>
+
+    </bean>
 </beans>
