@@ -45,4 +45,9 @@ public interface CustomerService {
     @POST
     @Consumes("application/json")
     void register(Customer customer);
+
+    @Path("/active")
+    @PUT
+    @Consumes("application/json")
+    void active(Customer customer);
 }

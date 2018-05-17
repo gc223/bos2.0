@@ -63,4 +63,9 @@ public class CustomerServiceImpl implements CustomerService {
         customerRepository.save(customer);
     }
 
+    @Override
+    public void active(Customer customer) {
+        customerRepository.updateType(customer.getTelephone());
+    }
+
 }

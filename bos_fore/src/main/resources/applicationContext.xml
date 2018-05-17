@@ -13,4 +13,6 @@
     <context:property-placeholder location="classpath:config.properties"/>
 
     <import resource="applicationContext-cache.xml"/>
+
+    <import resource="applicationContext-mq.xml"/>
 </beans>
