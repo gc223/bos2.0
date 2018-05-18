@@ -33,8 +33,8 @@ public class PromotionAction extends BaseAction<Promotion> {
 
     @Action(value = "promotion_pageQuery", results = {@Result(type = "json")})
     public String pageQuery() {
-        System.out.println(page);
-        System.out.println(rows);
+//        System.out.println(page);
+//        System.out.println(rows);
         PageRequest pageable = new PageRequest(page - 1, rows);
         Page<Promotion> pageData = promotionService.pageQuery(pageable);
         this.pushPageDataToValueStack(pageData);

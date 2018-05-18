@@ -42,7 +42,7 @@ public class StandardAction extends ActionSupport implements
     private StandardService standardService;
 
     // 添加操作
-    @Action(value = "standard_save", results = {@Result(name = "success", type = "redirect", location = "./pages/base/standard.html")})
+    @Action(value = "standard_save", results = {@Result(type = "redirect", location = "./pages/base/standard.html")})
     public String save() {
         System.out.println("添加收派标准....");
         standardService.save(standard);
