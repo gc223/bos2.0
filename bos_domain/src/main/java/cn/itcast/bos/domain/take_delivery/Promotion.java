@@ -1,19 +1,18 @@
 package cn.itcast.bos.domain.take_delivery;
 
+import cn.itcast.bos.domain.constant.Constants;
+
+import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 import java.util.Date;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
 /**
  * @description:促销信息实体类
  */
 @Entity
 @Table(name = "T_PROMOTION")
+@XmlRootElement(name = "promotion")
 public class Promotion implements Serializable {
 
     @Id
@@ -58,7 +57,10 @@ public class Promotion implements Serializable {
     }
 
     public String getTitleImg() {
-        return titleImg;
+        if (titleImg.startsWith("http")) {
+            return titleImg;
+        }
+        return Constants.BOS_MANAGEMENT_HOST + titleImg;
     }
 
     public void setTitleImg(String titleImg) {
@@ -122,6 +124,7 @@ public class Promotion implements Serializable {
     }
 
     public String getDescription() {
+
         return description;
     }
 

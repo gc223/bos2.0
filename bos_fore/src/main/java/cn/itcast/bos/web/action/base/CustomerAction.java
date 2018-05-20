@@ -96,6 +96,11 @@ public class CustomerAction extends BaseAction<Customer> {
         return NONE;
     }
 
+    public String login() {
+
+        return SUCCESS;
+    }
+
     public void setMsgCode(String msgCode) {
         this.msgCode = msgCode;
     }

@@ -14,6 +14,7 @@
 
     <!-- 引入外部数据文件 -->
     <import resource="applicationContext-dataSource.xml"/>
+    <import resource="applicationContext-webService.xml"/>
 
     <bean name="promotionJob" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
         <property name="jobClass" value="cn.itcast.bos.quartz.PromotionJob"/>
