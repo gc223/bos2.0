@@ -3,11 +3,11 @@ $(function () {
     'use strict';
 
 
-    var $citypicker1 = $('#city-picker1');
+    var $citypicker1 = $('#sendAreaInfo');
 
     $citypicker1.citypicker();
 
-    var $citypicker2 = $('#city-picker2');
+    var $citypicker2 = $('#recAreaInfo');
 
     $citypicker2.citypicker({
         province: '江苏省',
@@ -15,10 +15,10 @@ $(function () {
         district: '溧阳市'
     });
 
-    var $citypicker3 = $('#city-picker3');
+    // var $citypicker3 = $('#city-picker3');
 
     $('#reset').click(function () {
-        $citypicker3.citypicker('reset');
+        $citypicker1.citypicker('reset');
 
 
     });
@@ -28,10 +28,10 @@ $(function () {
 
     });
 
-
-    $('#destroy').click(function () {
-        $citypicker3.citypicker('destroy');
-    });
+    //
+    // $('#destroy').click(function () {
+    //     $citypicker3.citypicker('destroy');
+    // });
 
 
 });

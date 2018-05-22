@@ -47,7 +47,7 @@
                 </ul>
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane fade in active" id="one">
-                        <form id="orderForm" class="form-horizontal" method="post">
+                        <form id="orderForm" action="./order_save.action" class="form-horizontal" method="post">
                             <!--寄件人信息 -->
                             <div class="model">
                                 <div class="areatitle">
@@ -63,7 +63,7 @@
                                                        placeholder="请输入发件人姓名" required="required">
                                                 <div class="input-group-addon">
                                                     <button type="button" data-toggle="modal" data-target="#myModal"
-                                                            id="dao"><img src="images/icon/suyun/contact.png"></button>
+                                                            id="dao1"><img src="images/icon/suyun/contact.png"></button>
                                                 </div>
 
                                                 <!-- Modal -->
@@ -96,7 +96,7 @@
                                                                 <div class="tab-content">
                                                                     <div class="form-group col-md-5">
                                                                         <input type="password" class="form-control"
-                                                                               id="inputPassword"
+                                                                               id="inputPassword1"
                                                                                placeholder="输入姓名/手机号/地址查询">
                                                                     </div>
                                                                     <button type="submit" class="btn btn-danger new">
@@ -218,7 +218,7 @@
                                                        style="z-index: 0;" placeholder="请输入收件人姓名" required="required">
                                                 <div class="input-group-addon">
                                                     <button type="button" data-toggle="modal" data-target="#myModal"
-                                                            id="dao"><img src="images/icon/suyun/contact.png"></button>
+                                                            id="dao2"><img src="images/icon/suyun/contact.png"></button>
                                                 </div>
 
                                                 <!-- Modal -->
@@ -251,7 +251,7 @@
                                                                 <div class="tab-content">
                                                                     <div class="form-group col-md-5">
                                                                         <input type="text" class="form-control"
-                                                                               id="inputPassword"
+                                                                               id="inputPassword2"
                                                                                placeholder="输入姓名/手机号/地址查询">
                                                                     </div>
                                                                     <button type="submit" class="btn btn-danger new">
@@ -341,6 +341,7 @@
                                                 <input name="recAddress" type="text" class="form-control"
                                                        placeholder="街道详细（精确到门牌号） " required="required">
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -631,3 +632,4 @@
         $('a[rel*=downloadr]').downloadr()
     }
 </script>
+

@@ -151,6 +151,16 @@
                 columns: columns,
                 onDblClickRow: doDblClickRow,
                 onAfterEdit: function (rowIndex, rowData, changes) {
+                    alert(rowIndex);
+                    $.post("../../waybill_save.action", rowData, function (data) {
+                        if (data.success) {
+                            $.messager.show({
+                                title: '提示窗口',
+                                msg: data.msg,
+
+                            })
+                        }
+                    });
                     console.info(rowData);
                     editIndex = undefined;
                 }

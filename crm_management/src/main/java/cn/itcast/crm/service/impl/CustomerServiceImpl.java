@@ -1,19 +1,19 @@
 package cn.itcast.crm.service.impl;
 
-import java.util.List;
-
+import cn.itcast.crm.dao.CustomerRepository;
+import cn.itcast.crm.domain.Customer;
+import cn.itcast.crm.service.CustomerService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import cn.itcast.crm.dao.CustomerRepository;
-import cn.itcast.crm.domain.Customer;
-import cn.itcast.crm.service.CustomerService;
+import java.util.List;
 
 @Service
 @Transactional
 public class CustomerServiceImpl implements CustomerService {
+
 
     // 注入DAO
     @Autowired
@@ -66,6 +66,11 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public void active(Customer customer) {
         customerRepository.updateType(customer.getTelephone());
+    }
+
+    @Override
+    public Customer login(String telephone, String password) {
+        return customerRepository.findByTelephoneAndPassword(telephone, password);
     }
 
 }

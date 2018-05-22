@@ -1,5 +1,6 @@
 package cn.itcast.bos.web.action.base;
 
+import cn.itcast.bos.domain.constant.Constants;
 import cn.itcast.bos.utils.MailUtils;
 import org.apache.commons.lang.RandomStringUtils;
 import org.apache.cxf.jaxrs.client.WebClient;
@@ -96,9 +97,19 @@ public class CustomerAction extends BaseAction<Customer> {
         return NONE;
     }
 
+    @Action(value = "customer_login", results =
+            {@Result(type = "redirect", location = "index.html#/myhome"),
+                    @Result(name = "login", location = "login.html", type = "redirect")})
     public String login() {
-
-        return SUCCESS;
+        Customer customer = WebClient.create(Constants.CRM_MANAGEMENT_URL + "/services/customerService/login?telephone="
+                + model.getTelephone() + "&password=" +
+                model.getPassword()).accept(MediaType.APPLICATION_JSON_TYPE).get(Customer.class);
+        if (customer == null) {
+            return LOGIN;
+        } else {
+            ServletActionContext.getRequest().getSession().setAttribute("customer", customer);
+            return SUCCESS;
+        }
     }
 
     public void setMsgCode(String msgCode) {

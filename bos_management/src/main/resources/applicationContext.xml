@@ -23,7 +23,7 @@
     <!-- 触发器 -->
     <bean name="cornPromotionTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
         <property name="jobDetail" ref="promotionJob"/>
-        <property name="cronExpression" value="0 0/30 * * * ? "/>
+        <property name="cronExpression" value="0 0 0/2 * * ? "/>
     </bean>
     <!--  -->
     <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
@@ -35,4 +35,5 @@
         </property>
 
     </bean>
+    <import resource="applicationContext-mq.xml"/>
 </beans>

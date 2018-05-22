@@ -1,17 +1,9 @@
 package cn.itcast.crm.service;
 
-import java.util.List;
-
-import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
-
 import cn.itcast.crm.domain.Customer;
+
+import javax.ws.rs.*;
+import java.util.List;
 
 /**
  * 客户操作
@@ -50,4 +42,9 @@ public interface CustomerService {
     @PUT
     @Consumes("application/json")
     void active(Customer customer);
+
+    @Path("/login")
+    @GET
+    @Produces({"application/xml", "application/json"})
+    Customer login(@QueryParam("telephone") String telephone, @QueryParam("password") String password);
 }
