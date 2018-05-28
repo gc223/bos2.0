@@ -12,6 +12,7 @@
 
     <groupId>cn.itcast.maven</groupId>
     <artifactId>bos_sms</artifactId>
+    <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
     <build>
         <plugins>

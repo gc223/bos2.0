@@ -7,7 +7,7 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
     <!-- 扫描 @Server @Controller @Repository -->
-    <context:component-scan base-package="cn.itcast"/>
+    <context:component-scan base-package="cn.itcast.bos"/>
 
     <!-- 加载properties文件 -->
     <context:property-placeholder location="classpath:config.properties"/>
@@ -36,4 +36,5 @@
 
     </bean>
     <import resource="applicationContext-mq.xml"/>
+    <import resource="applicationContext-es.xml"/>
 </beans>

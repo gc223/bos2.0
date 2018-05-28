@@ -26,8 +26,8 @@
         <property name="sessionCacheSize" value="100"/>
     </bean>
 
-    <jms:listener-container destination-type="queue" container-type="default"
-                            connection-factory="mqConnectionFactory" acknowledge="auto">
+    <jms:listener-container
+            connection-factory="mqConnectionFactory">
         <jms:listener destination="bos_sms" ref="smsConsumer"/>
     </jms:listener-container>
 

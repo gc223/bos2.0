@@ -48,4 +48,9 @@ public class OrderServiceImpl implements OrderService {
         order.setOrderType("2");
         orderRepository.save(order);
     }
+
+    @Override
+    public Order findByOrderNum(String orderNum) {
+        return orderRepository.findByOrderNum(orderNum);
+    }
 }
