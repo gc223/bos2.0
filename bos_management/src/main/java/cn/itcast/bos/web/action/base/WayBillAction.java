@@ -54,8 +54,8 @@ public class WayBillAction extends BaseAction<WayBill> {
     @Action(value = "waybill_pageQuery", results = {@Result(type = "json")})
     public String pageQuery() {
         Pageable pageable = new PageRequest(page - 1, rows, new Sort(Sort.Direction.ASC));
-        Page<WayBill> page = wayBillService.pageQuery(pageable);
-        ActionContext.getContext().getValueStack().push(page);
+        Page<WayBill> page = wayBillService.pageQuery(model, pageable);
+        pushPageDataToValueStack(page);
         return SUCCESS;
     }
 

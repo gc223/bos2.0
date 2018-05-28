@@ -7,7 +7,7 @@ import org.springframework.data.domain.Pageable;
 public interface WayBillService {
     void save(WayBill wayBill);
 
-    Page<WayBill> pageQuery(Pageable pageable);
+    Page<WayBill> pageQuery(WayBill wayBill, Pageable pageable);
 
     WayBill findByWayBillNum(String wayBillNum);
 }
